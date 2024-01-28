@@ -26,3 +26,5 @@ if (!userName) {
 
 console.log('Hello %s ', userName);
 
+
+console.log(__filename);
