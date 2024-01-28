@@ -15,16 +15,21 @@
  Example: [ '/bin/node', '/path/to/yourscript', 'arg1', 'arg2', ... ]
  src: https://nodejs.org/api/process.html#process_process_argv
  */
-const appName = process.argv[1].split(require('path').sep).pop()
 
 const userName = process.argv[2]
 
 if (!userName) {
+    const appName = process.argv[1].split(require('path').sep).pop()
+    
     console.error('Missing argument! Example: %s YOUR_NAME', appName)
+    // process.exit is like return, but it provide the exite code like 'sucess' or 'error', 
+    // it recieves two argument. 0 means 'sucess', and 1 'error'
     process.exit(1)
 }
 
 console.log('Hello %s ', userName);
 
 
-console.log(__filename);
+// you can get the dirname and the filename using those names, but is quite impossible get the params used in command Line
+// Take Note=>
+// console.log(__dirname.split(require('path').sep).pop(),__filename.split(require('path').sep).pop());
